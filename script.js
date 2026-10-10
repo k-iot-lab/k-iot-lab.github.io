@@ -38,14 +38,25 @@
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
-  /* ---------- contact form (static demo) ---------- */
+  /* ---------- contact form ----------
+     접수 서버가 아직 없어 입력 내용으로 메일 앱을 연다(실제로 보낸 것처럼 안내하지 않는다) */
   const form = document.getElementById("contactForm");
   const note = document.getElementById("formNote");
   if (form && note) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      note.textContent = "상담 요청이 접수되었습니다. 담당자가 확인 후 회신드리겠습니다.";
-      form.reset();
+      const d = new FormData(form);
+      const subject = `[GITEUL 도입 상담] ${d.get("org")} · ${d.get("name")}`;
+      const body = [
+        `이름: ${d.get("name")}`,
+        `기관 / 회사: ${d.get("org")}`,
+        `이메일: ${d.get("email")}`,
+        `검토 중인 현장: ${d.get("field")}`,
+        "",
+        String(d.get("message") || ""),
+      ].join("\n");
+      window.location.href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      note.textContent = "메일 앱에서 보내기를 눌러야 상담 요청이 전달됩니다.";
     });
   }
 
@@ -57,11 +68,13 @@
   let blips = [];
 
   const palette = () => {
-    const styles = getComputedStyle(document.documentElement);
+    // 색은 캔버스에 둔 --radar-* (style.css .radar-canvas). 첫 화면은 어두운 사진 위라 밝은 선을 쓴다.
+    // 아래 sweep이 "#rrggbb" + 알파로 이어 붙이므로 16진수여야 한다
+    const styles = getComputedStyle(canvas);
     return {
-      green: styles.getPropertyValue("--signal-green").trim() || "#4ADE9C",
-      amber: styles.getPropertyValue("--amber").trim() || "#E8A33D",
-      line: styles.getPropertyValue("--line").trim() || "rgba(255,255,255,0.1)",
+      green: styles.getPropertyValue("--radar-sweep").trim() || "#7FD9EC",
+      amber: styles.getPropertyValue("--radar-blip").trim() || "#01B2D5",
+      line: styles.getPropertyValue("--radar-line").trim() || "rgba(232,238,245,0.16)",
     };
   };
 
@@ -134,13 +147,13 @@
 
     // sweep gradient
     const grad = ctx.createConicGradient
-      ? ctx.createConicGradient(sweepAngle - Math.PI / 2, cx, cy)
+      ? ctx.createConicGradient(sweepAngle, cx, cy)
       : null;
     if (grad) {
-      grad.addColorStop(0, "transparent");
-      grad.addColorStop(0.85, "transparent");
+      grad.addColorStop(0, c.green + "00");
+      grad.addColorStop(0.85, c.green + "00");
       grad.addColorStop(0.97, c.green + "33");
-      grad.addColorStop(1, "transparent");
+      grad.addColorStop(1, c.green + "00");
       ctx.save();
       ctx.beginPath();
       ctx.arc(cx, cy, radius, 0, Math.PI * 2);
@@ -179,16 +192,28 @@
     sweepAngle += 0.012;
     if (sweepAngle > Math.PI * 2) sweepAngle -= Math.PI * 2;
 
-    requestAnimationFrame(drawFrame);
+    if (running) requestAnimationFrame(drawFrame);
   }
 
   resize();
   window.addEventListener("resize", resize);
 
+  // 첫 화면이 보일 때만 돌린다(아래로 내려가면 멈춰 배터리·CPU를 아낀다)
+  let running = false;
+  const start = () => {
+    if (running || reduceMotion) return;
+    running = true;
+    requestAnimationFrame(drawFrame);
+  };
   if (reduceMotion) {
     drawStatic();
+  } else if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) start();
+      else running = false;
+    }).observe(canvas);
   } else {
-    requestAnimationFrame(drawFrame);
+    start();
   }
 
   // repaint static rings if theme changes while reduced-motion is on

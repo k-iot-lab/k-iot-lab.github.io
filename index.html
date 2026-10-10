@@ -3,44 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GITEUL AI — AI 재난안전 통합 플랫폼</title>
-<meta name="description" content="AI 재난안전 서버 시스템, 로컬 엣지 서버, LTE Cat.1 기반 IoT 단말기를 자체 개발·제조하는 재난안전 기술 기업">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0F0D'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%234ADE9C' stroke-width='2' opacity='0.6'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%234ADE9C' stroke-width='2' opacity='0.8'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%23E8A33D'/%3E%3Cline x1='32' y1='32' x2='32' y2='6' stroke='%23E8A33D' stroke-width='2'/%3E%3C/svg%3E">
+<title>GITEUL — 도심 침수 예측·관제 플랫폼 GSF100</title>
+<meta name="description" content="저전력 수위 센서 GSF100과 서버·관제 웹·모바일 앱으로 도심 침수의 변화를 읽고, 현장 대응까지 잇는 GITEUL 재난안전 플랫폼">
+<meta name="theme-color" content="#0B1326">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="scanlines" aria-hidden="true"></div>
-
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
-    <a href="#top" class="brand">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 40 40" width="28" height="28">
-          <circle cx="20" cy="20" r="17" fill="none" stroke="var(--signal-green)" stroke-width="1.6" opacity="0.55"/>
-          <circle cx="20" cy="20" r="10" fill="none" stroke="var(--signal-green)" stroke-width="1.6" opacity="0.85"/>
-          <circle cx="20" cy="20" r="2.4" fill="var(--amber)"/>
-          <line x1="20" y1="20" x2="20" y2="4" stroke="var(--amber)" stroke-width="1.6"/>
-        </svg>
-      </span>
-      <span class="brand-name">GITEUL<span class="brand-ai">·AI</span></span>
+    <a href="#top" class="brand" aria-label="GITEUL 처음으로">
+      <img class="brand-logo" src="assets/giteul-logo.png" alt="GITEUL" width="87" height="26">
     </a>
 
-    <nav class="main-nav" id="mainNav">
-      <a href="#solutions">솔루션</a>
-      <a href="#architecture">아키텍처</a>
-      <a href="#tech">기술</a>
-      <a href="#deploy">도입분야</a>
+    <nav class="main-nav" id="mainNav" aria-label="주 메뉴">
+      <a href="#platform">플랫폼</a>
+      <a href="#gsf100">IoT단말기</a>
+      <a href="#control">관제·앱</a>
+      <a href="#sites">적용 현장</a>
       <a href="#company">회사소개</a>
       <a href="#contact" class="nav-cta">도입 상담</a>
     </nav>
 
-    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -49,363 +38,209 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="photo-band hero">
+    <img src="assets/img/hero-rain-city.jpg" alt="" fetchpriority="high">
     <canvas id="radar" class="radar-canvas" aria-hidden="true"></canvas>
-    <div class="hero-vignette" aria-hidden="true"></div>
-
-    <div class="wrap hero-inner">
-      <p class="eyebrow reveal"><span class="dot"></span>AI 재난안전 통합 플랫폼 · 서버 · 단말 자체 개발/제조</p>
-
-      <h1 class="hero-title reveal">
-        재난 앞에서,<br>
-        <span class="accent-text">1초</span>를 앞당깁니다.
-      </h1>
-
-      <p class="hero-sub reveal">
-        감지 → 분석 → 판단 → 경보. AI 재난안전 서버, 통신두절에도 버티는 로컬 엣지 서버,
-        LTE Cat.1 기반 IoT 단말까지 — 하나의 아키텍처로 설계하고 직접 제조합니다.
-      </p>
-
-      <div class="hero-cta reveal">
-        <a href="#solutions" class="btn btn-primary">솔루션 살펴보기</a>
-        <a href="#contact" class="btn btn-ghost">도입 문의하기</a>
-      </div>
-
-      <div class="hud-readout reveal" role="group" aria-label="시스템 사양 지표">
-        <div class="hud-item">
-          <span class="hud-label">STATUS</span>
-          <span class="hud-value hud-live"><span class="pulse"></span>MONITORING</span>
-        </div>
-        <div class="hud-item">
-          <span class="hud-label">EDGE LATENCY</span>
-          <span class="hud-value">&lt; 50<small>ms</small></span>
-        </div>
-        <div class="hud-item">
-          <span class="hud-label">NODE CAPACITY</span>
-          <span class="hud-value">1,000<small>+ /server</small></span>
-        </div>
-        <div class="hud-item">
-          <span class="hud-label">단말 통신</span>
-          <span class="hud-value">LTE Cat.1</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>AI 이상탐지 엔진 상시 가동</span>
-        <span>·</span>
-        <span>엣지 – 클라우드 하이브리드 아키텍처</span>
-        <span>·</span>
-        <span>LTE Cat.1 저전력 광역 통신</span>
-        <span>·</span>
-        <span>재난문자 · 방송 자동 연계</span>
-        <span>·</span>
-        <span>다중 센서 융합 분석</span>
-        <span>·</span>
-        <span>단말 OTA 원격 관리</span>
-        <span>·</span>
-        <span>AI 이상탐지 엔진 상시 가동</span>
-        <span>·</span>
-        <span>엣지 – 클라우드 하이브리드 아키텍처</span>
-        <span>·</span>
-        <span>LTE Cat.1 저전력 광역 통신</span>
-        <span>·</span>
-        <span>재난문자 · 방송 자동 연계</span>
-        <span>·</span>
-        <span>다중 센서 융합 분석</span>
-        <span>·</span>
-        <span>단말 OTA 원격 관리</span>
+    <div class="wrap">
+      <p class="hero-kicker">GSF100 FLOOD INTELLIGENCE</p>
+      <h1>위험을 먼저 읽어,<br>일상을 지킬 시간을.</h1>
+      <p class="hero-line">수위 센서부터 관제 웹 · 모바일 앱까지,<br>도심 침수의 변화를 읽고 현장 대응으로 잇습니다.</p>
+      <div class="hero-cta">
+        <a href="#platform" class="btn btn-primary">플랫폼 살펴보기</a>
+        <a href="#contact" class="btn btn-ghost">도입 상담</a>
       </div>
     </div>
   </section>
 
-  <!-- PROBLEM FRAMING -->
-  <section class="section problem">
+  <!-- 왜 · 플랫폼 -->
+  <section class="section" id="platform">
     <div class="wrap">
-      <div class="grid-2">
+      <p class="kicker reveal">Platform · Architecture</p>
+      <h2 class="h2 reveal">경고 한 번으로 끝나지 않도록.</h2>
+      <p class="section-sub reveal">'물이 닿았다'는 신호만으로는 어디가 위험한지, 물이 계속 차오르는지, 누가 움직여야 하는지 알기 어렵습니다. GITEUL은 현장의 변화를 계속 읽고, 판단과 대응까지 하나로 잇습니다.</p>
+      <div class="arch reveal" role="img" aria-label="아키텍처: IoT 단말기(GSF100)에서 서버, AI 예측을 거쳐 앱과 관제로 이어지는 흐름">
+        <div class="arch-node">
+          <span class="arch-step">01</span>
+          <b>IoT 단말기(GSF100)</b>
+          <span>수위와 장치 상태를 저전력으로 계속 계측합니다.</span>
+        </div>
+        <i class="arch-arrow" aria-hidden="true"></i>
+        <div class="arch-node">
+          <span class="arch-step">02</span>
+          <b>서버</b>
+          <span>현장별 기준으로 4단계 경보를 판정하고 이력을 쌓습니다.</span>
+        </div>
+        <i class="arch-arrow" aria-hidden="true"></i>
+        <div class="arch-node">
+          <span class="arch-step">03</span>
+          <b>AI 예측</b>
+          <span>변화율과 강우를 함께 보고 위험 도달 시점을 예측합니다.</span>
+        </div>
+        <i class="arch-arrow" aria-hidden="true"></i>
+        <div class="arch-node end">
+          <span class="arch-step">04</span>
+          <b>앱 · 관제</b>
+          <span>지도와 알림으로 같은 상황을 공유하고 대응을 잇습니다.</span>
+        </div>
+      </div>
+      <p class="arch-base reveal">LTE Cat.1 <i></i> 장치별 인증서 <i></i> 암호화 통신 <i></i> 원격 펌웨어 업데이트</p>
+    </div>
+  </section>
+
+  <!-- GSF100 -->
+  <section class="section alt" id="gsf100">
+    <div class="wrap">
+      <div class="media-row" style="margin-top:0">
+        <figure class="media reveal">
+          <img src="assets/img/gsf100-sensor.jpg" alt="GITEUL 로고가 있는 GSF100 본체와 수위 센서" loading="lazy" width="1300" height="732">
+        </figure>
         <div class="reveal">
-          <p class="kicker">WHY NOW</p>
-          <h2 class="h2">골든타임은 짧고,<br>현장의 데이터는 흩어져 있습니다.</h2>
-        </div>
-        <div class="reveal problem-copy">
-          <p>
-            하천 수위계, CCTV, 기상 데이터, 산업현장 센서는 이미 존재합니다. 문제는 이 데이터가
-            서로 다른 시스템에 분산되어 있고, 통신 인프라가 취약한 현장에서는 경보가 지연되거나
-            끊긴다는 점입니다.
-          </p>
-          <p>
-            GITEUL·AI는 중앙 AI 서버가 판단을 내리지 못하는 순간에도 현장의 로컬 서버가
-            자율적으로 위험을 감지하고 경보할 수 있도록, 서버와 단말을 하나의 설계 철학으로
-            묶어 개발합니다.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOLUTIONS -->
-  <section class="section" id="solutions">
-    <div class="wrap">
-      <p class="kicker reveal">SOLUTIONS</p>
-      <h2 class="h2 reveal">세 개의 층위, 하나의 대응 체계</h2>
-      <p class="section-sub reveal">현장 단말부터 중앙 관제까지, 자체 개발·제조로 이어지는 수직 통합 아키텍처</p>
-
-      <div class="product-grid">
-        <article class="hud-card reveal">
-          <div class="hud-card-top">
-            <span class="hud-card-tag">01 · CENTRAL</span>
-            <span class="hud-card-status status-green">ACTIVE</span>
-          </div>
-          <h3>AI 재난안전 서버 시스템</h3>
-          <p>다중 센서·CCTV·기상 데이터를 융합 분석하고, 이상 징후를 예측해 자동으로 경보를 트리거하는 중앙 관제 플랫폼입니다.</p>
-          <ul class="spec-list">
-            <li>AI 이상탐지 · 위험도 예측 모델</li>
-            <li>GIS 기반 통합 상황판 대시보드</li>
-            <li>재난문자 · 방송 · 유관기관 연계</li>
-            <li>다기관 권한 분리 및 이력 관리</li>
+          <p class="kicker" style="text-transform:none">IoT 단말기(GSF100)</p>
+          <h2 class="h2">작은 센서가,<br>현장의 변화를 데이터로.</h2>
+          <ul class="feature-list">
+            <li><b>환경 보정</b> — 기준 채널로 온 · 습도 변화를 보정합니다</li>
+            <li><b>저전력 구동</b> — 필요한 순간에만 측정하고 그 사이에는 전력을 아낍니다</li>
+            <li><b>LTE Cat.1</b> — 장치별 인증서와 암호화 통신, 원격 펌웨어 업데이트</li>
           </ul>
-        </article>
-
-        <article class="hud-card reveal">
-          <div class="hud-card-top">
-            <span class="hud-card-tag">02 · EDGE</span>
-            <span class="hud-card-status status-green">ACTIVE</span>
+          <div class="spec">
+            <b>최대 2m</b><span>현장별 맞춤 길이의 센서 제공 가능</span>
+            <b class="brand">1mm</b><span>연속 계측 해상도 (목표)</span>
           </div>
-          <h3>로컬 서버 시스템</h3>
-          <p>통신이 끊긴 현장에서도 자율적으로 판단하고 경보하는 엣지 컴퓨팅 서버입니다. 중앙 서버 복구 시 자동 동기화됩니다.</p>
-          <ul class="spec-list">
-            <li>오프라인 자립형 판단 · 경보 유지</li>
-            <li>저지연 실시간 처리</li>
-            <li>중앙 서버 하이브리드 동기화</li>
-            <li>오지 · 통신 취약지역 최적화</li>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 관제 웹 · 앱 -->
+  <section class="section" id="control">
+    <div class="wrap">
+      <p class="kicker reveal">Control &amp; App</p>
+      <h2 class="h2 reveal">상황실에서도, 현장에서도<br>같은 정보를 봅니다.</h2>
+      <div class="media-row">
+        <div class="screen reveal" role="img" aria-label="관제 웹 현황 화면 예시: 경보 단계별 장치 수와 지도 위 장치 위치, 경계 단계 장치 둘레의 경보 확산 영역">
+          <div class="screen-bar"><span></span><span></span><span></span><em>GITEUL 관제 · 현황</em></div>
+          <div class="screen-body">
+            <div class="stage-chips">
+              <span class="chip chip-normal">● 정상 <b>18</b></span>
+              <span class="chip chip-watch">◆ 관심 <b>3</b></span>
+              <span class="chip chip-warning">▲ 경계 <b>1</b></span>
+              <span class="chip chip-critical">■ 심각 <b>0</b></span>
+            </div>
+            <div class="screen-map" aria-hidden="true">
+              <i class="river"></i>
+              <i class="pin pin-normal" style="left:16%;top:30%"></i>
+              <i class="pin pin-normal" style="left:34%;top:70%"></i>
+              <i class="pin pin-watch" style="left:48%;top:26%"></i>
+              <i class="pin pin-warning" style="left:30%;top:42%"><s></s></i>
+              <i class="pin pin-normal" style="left:84%;top:62%"></i>
+            </div>
+          </div>
+          <p class="screen-note">화면 예시</p>
+        </div>
+        <div class="reveal">
+          <ul class="feature-list" style="margin-top:0">
+            <li><b>관제 웹</b> — 현황 · 지도 · 경보 이력, 위험 구역과 경보 확산 영역, 현장별 경보 기준 설정</li>
+            <li><b>모바일 앱</b> — Android · iOS, 경보 알림과 장치 현황, 연결이 끊겨도 마지막 정보 보기</li>
+            <li><b>설치 앱</b> — QR로 장치를 찾아 위치를 등록하고, 통신 상태를 확인한 뒤 설치 완료</li>
+            <li><b>역할별 범위</b> — 기관 관리자는 전체, 설치기사는 담당 현장, 사용자는 담당 장치만</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 적용 현장 -->
+  <section class="section alt" id="sites">
+    <div class="wrap">
+      <p class="kicker reveal">Sites</p>
+      <h2 class="h2 reveal">같은 비가 내려도,<br>먼저 지켜야 할 현장은 다릅니다.</h2>
+      <div class="sites">
+        <article class="site reveal">
+          <img src="assets/img/site-river.jpg" alt="비가 내린 뒤 물이 불어난 도심 하천과 산책로" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>하천 · 인접 저지대</h3><p>하천 수위와 저지대 추세를 함께 봅니다.</p></div>
         </article>
-
-        <article class="hud-card reveal">
-          <div class="hud-card-top">
-            <span class="hud-card-tag">03 · DEVICE</span>
-            <span class="hud-card-status status-green">ACTIVE</span>
-          </div>
-          <h3>LTE Cat.1 IoT 단말기</h3>
-          <p>저전력 광역 통신 기반의 자체 설계·제조 단말입니다. 다양한 센서 모듈과 결합해 현장 데이터를 수집합니다.</p>
-          <ul class="spec-list">
-            <li>장기 배터리 구동 · 저전력 설계</li>
-            <li>수위 · 진동 · 가스 · 기울기 센서 연동</li>
-            <li>대량 배치 · 원격 펌웨어(OTA) 관리</li>
-            <li>자체 제조 기반 원가 · 커스터마이징 경쟁력</li>
-          </ul>
+        <article class="site reveal">
+          <img src="assets/img/drainage-section.jpg" alt="도로 아래 하수관로와 집수정 단면, 집수정 안에 설치된 GSF100" loading="lazy" width="1400" height="788">
+          <div class="site-body"><h3>하수관로 · 배수망</h3><p>막힘 · 역류 징후를 수위 변화로 살핍니다.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="assets/img/site-basement.jpg" alt="빗물이 차오르는 반지하 창문과 출입구" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>반지하 · 지하 공간</h3><p>유입 경로의 변화를 담당자에게 알립니다.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="assets/img/site-parking.jpg" alt="물이 흘러드는 아파트 지하주차장 진입로" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>아파트 지하주차장</h3><p>관리사무소의 확인과 진입 관리를 돕습니다.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="assets/img/site-underpass.jpg" alt="물이 고인 지하차도" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>지하차도 · 저점 도로</h3><p>운영기관의 통제 판단을 앞당깁니다.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="assets/img/site-intersection.jpg" alt="맨홀에서 물이 솟아오르는 비 오는 사거리" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>사거리 · 보행 공간</h3><p>먼저 살펴볼 교차로를 함께 판단합니다.</p></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ARCHITECTURE -->
-  <section class="section arch" id="architecture">
-    <div class="wrap">
-      <p class="kicker reveal">ARCHITECTURE</p>
-      <h2 class="h2 reveal">감지에서 경보까지, 끊기지 않는 흐름</h2>
-      <p class="section-sub reveal">통신이 살아있을 때는 중앙 AI가, 끊겼을 때는 현장 엣지가 판단을 이어받습니다.</p>
-
-      <div class="flow reveal">
-        <div class="flow-node">
-          <span class="flow-icon" aria-hidden="true">◆</span>
-          <span class="flow-title">IoT 단말</span>
-          <span class="flow-desc">LTE Cat.1 · 센서 수집</span>
-        </div>
-        <div class="flow-arrow" aria-hidden="true"></div>
-        <div class="flow-node">
-          <span class="flow-icon" aria-hidden="true">◆</span>
-          <span class="flow-title">로컬 엣지 서버</span>
-          <span class="flow-desc">현장 자립 판단 · 1차 경보</span>
-        </div>
-        <div class="flow-arrow" aria-hidden="true"></div>
-        <div class="flow-node">
-          <span class="flow-icon" aria-hidden="true">◆</span>
-          <span class="flow-title">AI 중앙 서버</span>
-          <span class="flow-desc">통합 분석 · 위험도 예측</span>
-        </div>
-        <div class="flow-arrow" aria-hidden="true"></div>
-        <div class="flow-node flow-node-end">
-          <span class="flow-icon" aria-hidden="true">◆</span>
-          <span class="flow-title">통합 관제 · 경보</span>
-          <span class="flow-desc">지자체 · 소방 · 산업현장</span>
-        </div>
-      </div>
-
-      <div class="comm-layer reveal">
-        <p class="kicker" style="margin-top:0;">COMMUNICATION LAYER</p>
-        <h3 class="h3">현장 조건에 맞춰 통신 프로토콜을 선택·병행합니다</h3>
-
-        <div class="comm-flow">
-          <div class="comm-box">Application Layer</div>
-          <div class="comm-connector"></div>
-          <div class="comm-box comm-box-mid">Communication Interface</div>
-          <div class="comm-connector"></div>
-          <div class="comm-branch-line"></div>
-          <div class="comm-leaves">
-            <div class="comm-leaf"><span class="comm-stub"></span><span class="comm-leaf-label">SMS</span></div>
-            <div class="comm-leaf"><span class="comm-stub"></span><span class="comm-leaf-label">MQTT</span></div>
-            <div class="comm-leaf"><span class="comm-stub"></span><span class="comm-leaf-label">HTTP</span></div>
-            <div class="comm-leaf"><span class="comm-stub"></span><span class="comm-leaf-label">LoRaWAN</span></div>
-          </div>
-        </div>
-        <p class="section-sub" style="text-align:center; margin-inline:auto;">
-          통신망 품질이나 전력 조건이 다른 현장에서도 동일한 애플리케이션 로직이 SMS, MQTT, HTTP, LoRaWAN 중
-          적합한 프로토콜을 선택하거나 병행하도록 설계되어 있습니다.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECH DIFFERENTIATORS -->
-  <section class="section" id="tech">
-    <div class="wrap">
-      <p class="kicker reveal">DIFFERENTIATORS</p>
-      <h2 class="h2 reveal">서버와 단말을 함께 만드는 이유</h2>
-
-      <div class="tech-grid">
-        <div class="tech-item reveal">
-          <span class="tech-index">AI</span>
-          <h3>이상탐지 · 예측 엔진</h3>
-          <p>다변량 시계열 데이터를 학습해 이상 징후를 조기에 포착하고 위험도를 수치화합니다.</p>
-        </div>
-        <div class="tech-item reveal">
-          <span class="tech-index">EG</span>
-          <h3>엣지-클라우드 하이브리드</h3>
-          <p>통신 장애 상황에서도 현장 판단이 끊기지 않도록 로컬과 중앙이 역할을 분담합니다.</p>
-        </div>
-        <div class="tech-item reveal">
-          <span class="tech-index">IoT</span>
-          <h3>LTE Cat.1 자체 제조</h3>
-          <p>단말 하드웨어부터 펌웨어까지 직접 설계해 현장 요구에 맞춘 커스터마이징이 가능합니다.</p>
-        </div>
-        <div class="tech-item reveal">
-          <span class="tech-index">API</span>
-          <h3>개방형 통신 인터페이스</h3>
-          <p>SMS · MQTT · HTTP · LoRaWAN을 추상화 계층으로 지원해 기존 지자체 · 기관 시스템과 별도 인프라 교체 없이 연계합니다.</p>
-        </div>
-        <div class="tech-item reveal">
-          <span class="tech-index">SEC</span>
-          <h3>종단간 보안</h3>
-          <p>단말 인증과 통신 구간 암호화를 기본 적용해 재난 인프라에 요구되는 보안 수준을 충족합니다.</p>
-        </div>
-        <div class="tech-item reveal">
-          <span class="tech-index">SC</span>
-          <h3>확장형 아키텍처</h3>
-          <p>센서 수, 현장 규모, 기관 수에 따라 유연하게 확장되는 구조로 설계되었습니다.</p>
-        </div>
-        <div class="tech-item reveal">
-          <span class="tech-index">DT</span>
-          <h3>디지털 트윈 상태 동기화</h3>
-          <p>실제 장비의 현재 상태를 소프트웨어 안에 그대로 미러링해, 현장에 나가지 않고도 원격으로 진단하고 유지보수할 수 있습니다.</p>
-        </div>
-        <div class="tech-item reveal">
-          <span class="tech-index">SEG</span>
-          <h3>고객 맞춤형 배포 모델</h3>
-          <p>동일한 하드웨어 위에서 지자체는 온프레미스, 기업은 클라우드 · 온프레미스 선택, 개인은 구독형 SaaS로 유연하게 대응합니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEPLOYMENT AREAS -->
-  <section class="section deploy" id="deploy">
-    <div class="wrap">
-      <p class="kicker reveal">DEPLOYMENT</p>
-      <h2 class="h2 reveal">이런 현장에 적용됩니다</h2>
-
-      <div class="deploy-grid">
-        <div class="deploy-item reveal">
-          <h3>지자체 재난안전상황실</h3>
-          <p>하천 수위, 산사태, 저수지 등 자연재해 감시 및 통합 상황판 운영</p>
-        </div>
-        <div class="deploy-item reveal">
-          <h3>산업단지 · 공장</h3>
-          <p>가스 누출, 화재, 설비 이상 징후에 대한 실시간 안전관리</p>
-        </div>
-        <div class="deploy-item reveal">
-          <h3>사회기반시설</h3>
-          <p>교량, 터널, 배전 설비 등 인프라 구조물의 상태 모니터링</p>
-        </div>
-        <div class="deploy-item reveal">
-          <h3>스마트시티 인프라</h3>
-          <p>도시 단위 안전 센서 네트워크 구축 및 통합 관제 연계</p>
-        </div>
-        <div class="deploy-item reveal">
-          <h3>가정 · 개인 안전케어</h3>
-          <p>가스 누출, 침수 등 생활 안전 이슈를 감지하는 구독형 홈 IoT 서비스</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPANY -->
-  <section class="section company" id="company">
+  <!-- 회사소개 -->
+  <section class="section" id="company">
     <div class="wrap grid-2">
       <div class="reveal">
-        <p class="kicker">COMPANY</p>
-        <h2 class="h2">서버부터 단말까지,<br>하나의 파트너로 책임집니다</h2>
+        <p class="kicker">Company</p>
+        <h2 class="h2">서버부터 단말까지,<br>하나의 파트너로 책임집니다.</h2>
       </div>
       <div class="reveal problem-copy">
-        <p>
-          GITEUL·AI는 AI, 통신, 임베디드 기술을 통합해 재난안전 인프라를 설계·제조하는
-          기술 기업입니다. 중앙 서버, 로컬 서버, IoT 단말을 모두 자체 개발함으로써 구축부터
-          유지보수까지 책임지는 단일 파트너 구조를 지향합니다.
-        </p>
-        <p>
-          제품 문의, 파일럿 도입, 기술 제휴 관련 문의는 아래 연락처로 편하게 남겨주세요.
-        </p>
+        <p>GITEUL은 AI, 통신, 임베디드 기술을 통합해 재난안전 인프라를 설계 · 제조하는 기술 기업입니다. IoT 단말부터 서버 · 관제 웹 · 모바일 앱까지 모두 자체 개발해 구축부터 유지보수까지 책임지는 단일 파트너 구조를 지향합니다.</p>
+        <p>제품 문의, 파일럿 도입, 기술 제휴 관련 문의는 아래 상담 요청으로 편하게 남겨주세요.</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="section contact" id="contact">
-    <div class="wrap grid-2">
+  <!-- 도입 · 상담 -->
+  <section class="section alt" id="contact">
+    <div class="wrap contact-grid">
       <div class="reveal">
-        <p class="kicker">CONTACT</p>
-        <h2 class="h2">도입을 검토 중이신가요?</h2>
-        <p class="section-sub" style="margin-bottom:2rem;">
-          지자체 · 산업현장 · 기관 담당자를 위한 파일럿 상담을 진행합니다.
-        </p>
+        <p class="kicker">Pilot</p>
+        <h2 class="h2">도입은 한 현장의<br>검증에서 시작합니다.</h2>
+        <ol class="pilot-steps">
+          <li><b>01</b> 현장과 성공 기준 합의</li>
+          <li><b>02</b> 계측 · 경보 이력 비교</li>
+          <li><b>03</b> 효과 확인 후 확대</li>
+        </ol>
         <ul class="contact-info">
-          <li><span class="hud-label">EMAIL</span> contact@giteul.com</li>
-          <li><span class="hud-label">TEL</span> 02-0000-0000</li>
-          <li><span class="hud-label">ADDR</span> 서울특별시 [주소를 입력하세요]</li>
+          <li><b>이메일</b> contact@giteul.com</li>
+          <li><b>전화</b> 02-0000-0000</li>
         </ul>
       </div>
-
-      <form class="reveal contact-form" id="contactForm">
+      <form class="contact-form reveal" id="contactForm" data-mailto="contact@giteul.com">
+        <div class="form-row"><label for="f-name">이름</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
+        <div class="form-row"><label for="f-org">기관 / 회사</label><input id="f-org" name="org" type="text" required autocomplete="organization"></div>
+        <div class="form-row"><label for="f-email">이메일</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
         <div class="form-row">
-          <label for="f-name">이름</label>
-          <input id="f-name" name="name" type="text" required autocomplete="name">
-        </div>
-        <div class="form-row">
-          <label for="f-org">기관 / 회사</label>
-          <input id="f-org" name="org" type="text" required autocomplete="organization">
-        </div>
-        <div class="form-row">
-          <label for="f-email">이메일</label>
-          <input id="f-email" name="email" type="email" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="f-field">관심 분야</label>
+          <label for="f-field">검토 중인 현장</label>
           <select id="f-field" name="field">
-            <option value="local-gov">지자체 재난안전상황실</option>
-            <option value="industry">산업단지 · 공장</option>
-            <option value="infra">사회기반시설</option>
-            <option value="home">가정 · 개인</option>
-            <option value="etc">기타</option>
+            <option>하천 · 인접 저지대</option>
+            <option>하수관로 · 배수망</option>
+            <option>반지하 · 지하 공간</option>
+            <option>아파트 지하주차장</option>
+            <option>지하차도 · 저점 도로</option>
+            <option>기타</option>
           </select>
         </div>
-        <div class="form-row">
-          <label for="f-msg">문의 내용</label>
-          <textarea id="f-msg" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">상담 요청 보내기</button>
-        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        <div class="form-row"><label for="f-msg">문의 내용</label><textarea id="f-msg" name="message" rows="4" required></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block">메일로 상담 요청하기</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite">버튼을 누르면 입력한 내용으로 메일 앱이 열립니다.</p>
       </form>
+    </div>
+  </section>
+
+  <!-- 마무리 -->
+  <section class="photo-band closing">
+    <img src="assets/img/closing-dawn-city.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <h2>비가 그친 뒤에도,<br>일상이 계속될 수 있도록.</h2>
+      <p>기술로 안전한 내일의 기틀을 만듭니다.</p>
     </div>
   </section>
 
@@ -414,21 +249,19 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="footer-brand">
-      <span class="brand-name">GITEUL<span class="brand-ai">·AI</span></span>
-      <p>AI 재난안전 서버 · 로컬 서버 · LTE Cat.1 IoT 단말 개발/제조</p>
+      <span class="brand"><span class="brand-mark"><img src="assets/giteul-mark.png" alt="" width="24" height="26"></span><span class="brand-name">GITEUL</span></span>
+      <p>도심 침수 예측 · 관제 플랫폼 GSF100</p>
     </div>
     <div class="footer-links">
       <div>
-        <h4>솔루션</h4>
-        <a href="#solutions">AI 재난안전 서버</a>
-        <a href="#solutions">로컬 엣지 서버</a>
-        <a href="#solutions">LTE Cat.1 IoT 단말</a>
+        <h4>플랫폼</h4>
+        <a href="#gsf100">IoT단말기</a>
+        <a href="#control">관제 웹 · 앱</a>
+        <a href="#sites">적용 현장</a>
       </div>
       <div>
         <h4>회사</h4>
-        <a href="#company">회사소개</a>
-        <a href="#tech">기술</a>
-        <a href="#deploy">도입분야</a>
+          <a href="#company">회사소개</a>
       </div>
       <div>
         <h4>문의</h4>
@@ -438,8 +271,8 @@
     </div>
   </div>
   <div class="wrap footer-legal">
-    <p>상호 GITEUL·AI (주)GITEUL · 사업자등록번호 [입력 필요] · 서울특별시 [주소를 입력하세요]</p>
-    <p>&copy; 2026 GITEUL·AI. All rights reserved.</p>
+    <p>상호 (주)GITEUL · 사업자등록번호 [입력 필요] · 서울특별시 [주소를 입력하세요]</p>
+    <p>&copy; 2026 GITEUL. All rights reserved. 본 사이트의 이미지 · 로고 · 콘텐츠는 무단 복제 · 사용을 금합니다.</p>
   </div>
 </footer>
 
