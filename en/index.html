@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GITEUL — GSF100 Urban Flood Prediction &amp; Monitoring Platform</title>
+<meta name="description" content="GITEUL disaster-safety platform: the low-power GSF100 water-level sensor with server, monitoring web and mobile apps — reading urban flood changes and connecting them to on-site response.">
+<meta name="theme-color" content="#0B1326">
+<link rel="alternate" hreflang="ko" href="https://k-iot-lab.github.io/">
+<link rel="alternate" hreflang="en" href="https://k-iot-lab.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://k-iot-lab.github.io/">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="../style.css?v=20261015-4">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand" aria-label="GITEUL home">
+      <img class="brand-logo" src="../assets/giteul-logo.png" alt="GITEUL" width="87" height="26">
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main menu">
+      <a href="#platform">Platform</a>
+      <a href="#gsf100">IoT Device</a>
+      <a href="#control">Monitoring &amp; App</a>
+      <a href="#sites">Use Cases</a>
+      <a href="#company">Company</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="../" lang="ko" hreflang="ko">KOR</a>
+      <span aria-hidden="true">|</span>
+      <a href="./" lang="en" aria-current="page">ENG</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="photo-band hero">
+    <img src="../assets/img/hero-rain-city.jpg" alt="" fetchpriority="high">
+    <canvas id="radar" class="radar-canvas" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="hero-kicker">GSF100 FLOOD INTELLIGENCE</p>
+      <h1>Read the risk first,<br>buy time to protect daily life.</h1>
+      <p class="hero-line">From water-level sensors to the monitoring web and mobile app,<br>we read how urban flooding unfolds and connect it to on-site response.</p>
+      <div class="hero-cta">
+        <a href="#platform" class="btn btn-primary">Explore the platform</a>
+        <a href="#contact" class="btn btn-ghost">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why · Platform -->
+  <section class="section" id="platform">
+    <div class="wrap">
+      <p class="kicker reveal">Platform · Architecture</p>
+      <h2 class="h2 reveal">More than a one-time alert.</h2>
+      <p class="section-sub reveal">A simple "water detected" signal can't tell you where the danger is, whether the water is still rising, or who needs to act. GITEUL keeps reading changes on site and connects judgment and response in one flow.</p>
+      <div class="arch reveal" role="img" aria-label="Architecture: from the IoT device (GSF100) through the server and AI prediction to the app and monitoring">
+        <div class="arch-node">
+          <span class="arch-step">01</span>
+          <b>IoT Device (GSF100)</b>
+          <span>Continuously measures water level and device status at low power.</span>
+        </div>
+        <i class="arch-arrow" aria-hidden="true"></i>
+        <div class="arch-node">
+          <span class="arch-step">02</span>
+          <b>Server</b>
+          <span>Judges a 4-level alert against each site's thresholds and keeps the history.</span>
+        </div>
+        <i class="arch-arrow" aria-hidden="true"></i>
+        <div class="arch-node">
+          <span class="arch-step">03</span>
+          <b>AI Prediction</b>
+          <span>Looks at the rate of change together with rainfall to predict when risk will be reached.</span>
+        </div>
+        <i class="arch-arrow" aria-hidden="true"></i>
+        <div class="arch-node end">
+          <span class="arch-step">04</span>
+          <b>App · Monitoring</b>
+          <span>Shares the same situation through maps and alerts, and carries the response forward.</span>
+        </div>
+      </div>
+      <p class="arch-base reveal">LTE Cat.1 <i></i> Per-device certificates <i></i> Encrypted communication <i></i> Remote firmware updates</p>
+    </div>
+  </section>
+
+  <!-- GSF100 -->
+  <section class="section alt" id="gsf100">
+    <div class="wrap">
+      <div class="media-row" style="margin-top:0">
+        <figure class="media reveal">
+          <img src="../assets/img/gsf100-sensor.jpg" alt="GSF100 unit with the GITEUL logo and its water-level sensor" loading="lazy" width="1300" height="732">
+        </figure>
+        <div class="reveal">
+          <p class="kicker" style="text-transform:none">IoT Device (GSF100)</p>
+          <h2 class="h2">A small sensor<br>turns on-site change into data.</h2>
+          <ul class="feature-list">
+            <li><b>Environmental compensation</b> — compensates for temperature and humidity changes with a reference channel</li>
+            <li><b>Low-power operation</b> — measures only when needed and saves power in between</li>
+            <li><b>LTE Cat.1</b> — per-device certificates, encrypted communication, remote firmware updates</li>
+          </ul>
+          <div class="spec">
+            <b>Up to 2 m</b><span>Sensors available in lengths tailored to each site</span>
+            <b class="brand">1 mm</b><span>Continuous measurement resolution (target)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monitoring web · app -->
+  <section class="section" id="control">
+    <div class="wrap">
+      <p class="kicker reveal">Control &amp; App</p>
+      <h2 class="h2 reveal">The control room and the field<br>see the same information.</h2>
+      <div class="media-row">
+        <div class="screen reveal" role="img" aria-label="Example of the monitoring web overview: device counts by alert level, device locations on a map, and the alert spread area around a Warning-level device">
+          <div class="screen-bar"><span></span><span></span><span></span><em>GITEUL Monitoring · Overview</em></div>
+          <div class="screen-body">
+            <div class="stage-chips">
+              <span class="chip chip-normal">● Normal <b>18</b></span>
+              <span class="chip chip-watch">◆ Watch <b>3</b></span>
+              <span class="chip chip-warning">▲ Warning <b>1</b></span>
+              <span class="chip chip-critical">■ Critical <b>0</b></span>
+            </div>
+            <div class="screen-map" aria-hidden="true">
+              <i class="river"></i>
+              <i class="pin pin-normal" style="left:16%;top:30%"></i>
+              <i class="pin pin-normal" style="left:34%;top:70%"></i>
+              <i class="pin pin-watch" style="left:48%;top:26%"></i>
+              <i class="pin pin-warning" style="left:30%;top:42%"><s></s></i>
+              <i class="pin pin-normal" style="left:84%;top:62%"></i>
+            </div>
+          </div>
+          <p class="screen-note">Example screen</p>
+        </div>
+        <div class="reveal">
+          <ul class="feature-list" style="margin-top:0">
+            <li><b>Monitoring web</b> — overview, map and alert history; risk zones and alert spread areas; alert thresholds per site</li>
+            <li><b>Mobile app</b> — Android · iOS; alert notifications and device status; the latest information stays visible even when offline</li>
+            <li><b>Installer app</b> — find a device by QR, register its location, check connectivity, then complete installation</li>
+            <li><b>Role-based access</b> — organization admins see everything, installers their assigned sites, users their assigned devices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="section alt" id="sites">
+    <div class="wrap">
+      <p class="kicker reveal">Sites</p>
+      <h2 class="h2 reveal">The same rain falls everywhere,<br>but some places need protecting first.</h2>
+      <div class="sites">
+        <article class="site reveal">
+          <img src="../assets/img/site-river.jpg" alt="An urban stream and walkway swollen after rain" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>Rivers · Adjacent low-lying areas</h3><p>Watches river levels together with low-lying area trends.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="../assets/img/drainage-section.jpg" alt="Cross-section of a sewer line and catch basin under the road, with a GSF100 installed in the catch basin" loading="lazy" width="1400" height="788">
+          <div class="site-body"><h3>Sewers · Drainage networks</h3><p>Spots signs of blockage and backflow through water-level changes.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="../assets/img/site-basement.jpg" alt="Rainwater rising at a semi-basement window and entrance" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>Semi-basements · Underground spaces</h3><p>Alerts the person in charge to changes along inflow paths.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="../assets/img/site-parking.jpg" alt="Water flowing into the entrance of an apartment underground parking lot" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>Apartment underground parking</h3><p>Helps the management office check conditions and control entry.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="../assets/img/site-underpass.jpg" alt="A flooded road underpass" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>Underpasses · Low points on roads</h3><p>Brings forward operators' decisions to close roads.</p></div>
+        </article>
+        <article class="site reveal">
+          <img src="../assets/img/site-intersection.jpg" alt="A rainy intersection with water gushing from a manhole" loading="lazy" width="1200" height="675">
+          <div class="site-body"><h3>Intersections · Pedestrian areas</h3><p>Helps decide which intersections to check first.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company -->
+  <section class="section" id="company">
+    <div class="wrap grid-2">
+      <div class="reveal">
+        <p class="kicker">Company</p>
+        <h2 class="h2">From server to device,<br>one partner takes responsibility.</h2>
+      </div>
+      <div class="reveal problem-copy">
+        <p>GITEUL is a technology company that designs and manufactures disaster-safety infrastructure by integrating AI, communications and embedded technology. We develop everything in-house — from IoT devices to the server, monitoring web and mobile app — aiming to be a single partner responsible from deployment through maintenance.</p>
+        <p>For product inquiries, pilot deployments or technical partnerships, please leave a request below.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilot · Contact -->
+  <section class="section alt" id="contact">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <p class="kicker">Pilot</p>
+        <h2 class="h2">Adoption starts with<br>validating a single site.</h2>
+        <ol class="pilot-steps">
+          <li><b>01</b> Agree on the site and success criteria</li>
+          <li><b>02</b> Compare measurement and alert history</li>
+          <li><b>03</b> Expand once results are confirmed</li>
+        </ol>
+        <ul class="contact-info">
+          <li><b>Email</b> contact@giteul.com</li>
+          <li><b>Phone</b> +82-2-0000-0000</li>
+        </ul>
+      </div>
+      <form class="contact-form reveal" id="contactForm" data-mailto="contact@giteul.com">
+        <div class="form-row"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
+        <div class="form-row"><label for="f-org">Organization / Company</label><input id="f-org" name="org" type="text" required autocomplete="organization"></div>
+        <div class="form-row"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="form-row">
+          <label for="f-field">Site under consideration</label>
+          <select id="f-field" name="field">
+            <option>Rivers · Adjacent low-lying areas</option>
+            <option>Sewers · Drainage networks</option>
+            <option>Semi-basements · Underground spaces</option>
+            <option>Apartment underground parking</option>
+            <option>Underpasses · Low points on roads</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row"><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="4" required></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block">Send request by email</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite">Clicking the button opens your email app with what you entered.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="photo-band closing">
+    <img src="../assets/img/closing-dawn-city.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <h2>Even after the rain stops,<br>so daily life can go on.</h2>
+      <p>We build the foundation for a safer tomorrow with technology.</p>
+      <p class="closing-en">FOUNDATION FOR SAFETY,<br><span>CONNECTED FOR TOMORROW</span></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand"><span class="brand-mark"><img src="../assets/giteul-mark.png" alt="" width="24" height="26"></span><span class="brand-name">GITEUL</span></span>
+      <p>GSF100 Urban Flood Prediction &amp; Monitoring Platform</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <h4>Platform</h4>
+        <a href="#gsf100">IoT Device</a>
+        <a href="#control">Monitoring Web · App</a>
+        <a href="#sites">Use Cases</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#company">About Us</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="#contact">Request a consultation</a>
+        <a href="mailto:contact@giteul.com">contact@giteul.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-legal">
+    <p>GITEUL Co., Ltd. · Business registration no. [to be entered] · Seoul, Republic of Korea [address to be entered]</p>
+    <p>&copy; 2026 GITEUL. All rights reserved. Unauthorized copying or use of the images, logos and content on this site is prohibited.</p>
+  </div>
+</footer>
+
+<script src="../script.js?v=20261015-1"></script>
+</body>
+</html>

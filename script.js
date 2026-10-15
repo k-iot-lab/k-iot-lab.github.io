@@ -42,21 +42,27 @@
      접수 서버가 아직 없어 입력 내용으로 메일 앱을 연다(실제로 보낸 것처럼 안내하지 않는다) */
   const form = document.getElementById("contactForm");
   const note = document.getElementById("formNote");
+  // 영문판(en/, 2026-10-15)은 메일 제목·본문·안내도 영어로
+  const T = document.documentElement.lang === "en"
+    ? { subject: "GITEUL Consultation", name: "Name", org: "Organization / Company", email: "Email", field: "Site under consideration",
+        sent: "Press Send in your email app to deliver the request." }
+    : { subject: "GITEUL 도입 상담", name: "이름", org: "기관 / 회사", email: "이메일", field: "검토 중인 현장",
+        sent: "메일 앱에서 보내기를 눌러야 상담 요청이 전달됩니다." };
   if (form && note) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const d = new FormData(form);
-      const subject = `[GITEUL 도입 상담] ${d.get("org")} · ${d.get("name")}`;
+      const subject = `[${T.subject}] ${d.get("org")} · ${d.get("name")}`;
       const body = [
-        `이름: ${d.get("name")}`,
-        `기관 / 회사: ${d.get("org")}`,
-        `이메일: ${d.get("email")}`,
-        `검토 중인 현장: ${d.get("field")}`,
+        `${T.name}: ${d.get("name")}`,
+        `${T.org}: ${d.get("org")}`,
+        `${T.email}: ${d.get("email")}`,
+        `${T.field}: ${d.get("field")}`,
         "",
         String(d.get("message") || ""),
       ].join("\n");
       window.location.href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      note.textContent = "메일 앱에서 보내기를 눌러야 상담 요청이 전달됩니다.";
+      note.textContent = T.sent;
     });
   }
 
