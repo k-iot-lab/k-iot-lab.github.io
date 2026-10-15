@@ -141,6 +141,9 @@ button, input, select, textarea{ font-family: inherit; }
 .closing h2{ font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.22; font-weight: 800; max-width: 14ch; }
 .closing p{ margin-top: 36px; font-size: 1.2rem; font-weight: 700; }
 .closing p + p{ margin-top: 14px; font-weight: 400; color: rgba(255,255,255,0.8); }
+/* 영문 슬로건(2026-10-15) — 첫 줄 흰색, 둘째 줄 브랜드 청록(어두운 사진 위라 대비 충분) */
+.closing .closing-en{ margin-top: 40px; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.02em; line-height: 2.1; color: #fff; }
+.closing .closing-en span{ color: var(--brand); }
 
 /* ============ SECTIONS ============ */
 .section{ padding: 112px 0; }

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>GITEUL·AI — 사업 구조 (IR / Internal)</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ir-header{
+    position: static;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .ir-banner{
+    background: var(--brand-soft);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--brand);
+  }
+  .ir-hero{ padding: 72px 0 0; }
+  .ir-back{
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 13px; color: var(--ink-soft);
+  }
+  .ir-back:hover{ color: var(--ink); }
+  .ir-note{
+    margin-top: 40px;
+    border-left: 2px solid var(--line-strong);
+    padding-left: 20px;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+    max-width: 64ch;
+  }
+</style>
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<div class="ir-banner">CONFIDENTIAL · 내부 검토 및 IR용 자료 · 외부 공개 금지</div>
+
+<header class="site-header ir-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="assets/giteul-mark.png" alt="" width="26" height="28">
+      </span>
+      <span class="brand-name">GITEUL<span class="brand-ai">·AI</span></span>
+    </a>
+    <a href="index.html" class="ir-back">&larr; 홈페이지로 돌아가기</a>
+  </div>
+</header>
+
+<main>
+  <section class="section ir-hero">
+    <div class="wrap">
+      <p class="kicker reveal">IR · INTERNAL ONLY</p>
+      <h1 class="h2 reveal">고객군별 사업 구조 및 수익 모델</h1>
+      <p class="section-sub reveal">
+        동일한 하드웨어 기반 위에서, 지자체 · 기업 · 개인 고객군에 따라 소프트웨어 · 통신 · AI · 운영 방식을
+        다르게 설계한 구조입니다. 투자자 · 내부 검토용 자료이며 공개 홈페이지에는 게재하지 않습니다.
+      </p>
+
+      <div class="biz-table-wrap reveal">
+        <table class="biz-table">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>지자체 · 공공기관<span class="biz-tag">B2G</span></th>
+              <th>기업 · 산업현장<span class="biz-tag">B2B</span></th>
+              <th>개인 · 가정<span class="biz-tag">B2C</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>하드웨어</td>
+              <td>장비 판매</td>
+              <td>장비 판매</td>
+              <td>장비 판매</td>
+            </tr>
+            <tr>
+              <td>소프트웨어</td>
+              <td>영구 라이선스 또는 유지보수 계약</td>
+              <td>구독 또는 라이선스</td>
+              <td>구독</td>
+            </tr>
+            <tr>
+              <td>통신</td>
+              <td>SMS (Cat.1)</td>
+              <td>MQTT (Cat.1/LTE)</td>
+              <td>MQTT (Cat.1/LTE)</td>
+            </tr>
+            <tr>
+              <td>AI</td>
+              <td>기관 내부 온프레미스 sLLM<br><small>(폐쇄망 대응, 선택)</small></td>
+              <td>클라우드 AI 또는 온프레미스</td>
+              <td>클라우드 AI</td>
+            </tr>
+            <tr>
+              <td>운영 방식</td>
+              <td>기관별 온프레미스<br><small>(Local First)</small></td>
+              <td>클라우드 또는 온프레미스</td>
+              <td>클라우드 (SaaS)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="reveal ir-note">
+        <p>
+          핵심 전제: 실제 장비의 현재 상태를 소프트웨어 안에 그대로 표현하는 디지털 트윈 구조를 기반으로 하며,
+          이를 통해 유지보수 난이도를 크게 낮춥니다. 통신 계층은 SMS · MQTT · HTTP · LoRaWAN을 추상화해
+          지원하므로, 고객군별 통신 방식 차이는 동일한 애플리케이션 로직 위에서 설정만으로 대응합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-legal" style="border-top:none; padding-top:0;">
+    <p>이 페이지는 검색엔진에 노출되지 않도록 설정되어 있으나, URL을 아는 사람은 누구나 접근할 수 있습니다.</p>
+    <p>&copy; 2026 GITEUL·AI. Internal document.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
